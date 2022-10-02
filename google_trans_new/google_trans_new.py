@@ -13,7 +13,7 @@ log.addHandler(logging.NullHandler())
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 URLS_SUFFIX = [re.search('translate.google.(.*)', url.strip()).group(1) for url in DEFAULT_SERVICE_URLS]
-URL_SUFFIX_DEFAULT = 'cn'
+URL_SUFFIX_DEFAULT = 'tn'
 
 
 class google_new_transError(Exception):
@@ -87,7 +87,7 @@ class google_translator:
 
     '''
 
-    def __init__(self, url_suffix="cn", timeout=5, proxies=None):
+    def __init__(self, url_suffix="tn", timeout=5, proxies=None):
         self.proxies = proxies
         if url_suffix not in URLS_SUFFIX:
             self.url_suffix = URL_SUFFIX_DEFAULT
